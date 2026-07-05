@@ -144,4 +144,4 @@ Algumas melhorias planejadas para versões futuras:
 Desenvolvido por **Matheus Martins**
 
 🌐 GitHub Pages:
-> *(adicione aqui o link da publicação quando o projeto estiver online)*
+> *([Link](https://darthzin-mm.github.io/powerfit-studio/))*
