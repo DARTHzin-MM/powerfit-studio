@@ -9,6 +9,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
     <title>PowerFit Studio</title>
   </head>
   <body>
@@ -17,11 +18,11 @@
         <a href="#hero" class="logo">
           <img
             src="assets/icons/icon-logo-powerfit-studio.png"
-            alt="Icone da Powerfit Studio"
+            alt="PowerFit Studio"
           />
         </a>
-        <nav class="navbar">
-          <div class="nav-links">
+        <nav class="navbar" aria-label="Navegação principal">
+          <div class="nav-links" id="menu-principal">
             <a href="#beneficios">Benefícios</a>
             <a href="#sobre">Sobre</a>
             <a href="#professores">Professores</a>
@@ -30,6 +31,14 @@
             <a href="#contato" class="nav-cta">Agendar visita</a>
           </div>
         </nav>
+        <button
+          class="menu-toggle"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="menu-principal"
+        >
+          ☰
+        </button>
       </div>
     </header>
 
@@ -77,7 +86,7 @@
           </header>
 
           <div class="grid beneficios-grid">
-            <article class="card card-beneficio">
+            <article class="card card-beneficio reveal">
               <div class="card-icon" aria-hidden="true">01</div>
 
               <h3>Equipamentos Modernos</h3>
@@ -88,7 +97,7 @@
               </p>
             </article>
 
-            <article class="card card-beneficio">
+            <article class="card card-beneficio reveal">
               <div class="card-icon" aria-hidden="true">02</div>
 
               <h3>Profissionais Qualificados</h3>
@@ -99,7 +108,7 @@
               </p>
             </article>
 
-            <article class="card card-beneficio">
+            <article class="card card-beneficio reveal">
               <div class="card-icon" aria-hidden="true">03</div>
 
               <h3>Ambiente Motivador</h3>
@@ -119,6 +128,7 @@
             <img
               src="assets/images/area-academia-powerfit.png"
               alt="Interior da academia PowerFit Studio"
+              loading="lazy"
             />
           </div>
 
@@ -156,19 +166,21 @@
           </header>
 
           <div class="grid professores-grid">
-            <article class="card card-professor">
+            <article class="card card-professor reveal">
               <img
                 src="assets/images/personal-homem-powerfit.png"
                 alt="Rafael Silva, personal trainer da PowerFit Studio"
+                loading="lazy"
               />
               <h3>Rafael Silva</h3>
               <p>Especialista em musculação e hipertrofia.</p>
             </article>
 
-            <article class="card card-professor">
+            <article class="card card-professor reveal">
               <img
                 src="assets/images/personal-mulher-powerfit.png"
                 alt="Ana Costa, personal trainer da PowerFit Studio"
+                loading="lazy"
               />
               <h3>Ana Costa</h3>
               <p>Especialista em condicionamento físico.</p>
@@ -188,7 +200,7 @@
           </header>
 
           <div class="grid planos-grid">
-            <article class="card card-plano">
+            <article class="card reveal card-plano">
               <h3>Plano Básico</h3>
 
               <p class="plan-price">
@@ -205,7 +217,7 @@
               <a href="#contato" class="btn">Escolher Plano</a>
             </article>
 
-            <article class="card card-plano destaque">
+            <article class="card reveal card-plano destaque">
               <span class="plan-badge">MAIS ESCOLHIDO</span>
 
               <h3>Plano Premium</h3>
@@ -226,7 +238,7 @@
               <a href="#contato" class="btn">Escolher Plano</a>
             </article>
 
-            <article class="card card-plano">
+            <article class="card reveal card-plano">
               <h3>Plano VIP</h3>
 
               <p class="plan-price">

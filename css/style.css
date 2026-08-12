@@ -74,9 +74,46 @@ img {
   --transition: 300ms ease;
   --transition-slow: 500ms ease;
 
+  /* ===== Animation ===== */
+
+  --animation-duration: 700ms ease;
+
   /* ===== Utils ===== */
 
   --container-width: 1200px;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUpReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.visible {
+  animation: fadeUpReveal 900ms ease;
 }
 
 /* ===== GLOBAL ===== */
@@ -306,6 +343,34 @@ section {
   background-color: var(--color-primary-hover);
 }
 
+.menu-toggle {
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+
+  background: transparent;
+  color: var(--color-text);
+
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.menu-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
 /* ===== HERO ===== */
 
 #hero {
@@ -364,6 +429,8 @@ section {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.18em;
+
+  animation: fadeUp var(--animation-duration);
 }
 
 #hero h1 {
@@ -371,6 +438,8 @@ section {
   font-size: var(--text-4xl);
   line-height: 1.05;
   letter-spacing: -0.03em;
+
+  animation: fadeUp var(--animation-duration) 100ms backwards;
 }
 
 .hero-description {
@@ -378,6 +447,12 @@ section {
   font-size: var(--text-lg);
   line-height: 1.7;
   color: var(--color-text-muted);
+
+  animation: fadeUp var(--animation-duration) 200ms backwards;
+}
+
+#hero .btn {
+  animation: fadeUp var(--animation-duration) 300ms backwards;
 }
 
 /* ===== BENEFÍCIOS ===== */
@@ -392,6 +467,14 @@ section {
   align-items: center;
   text-align: center;
   gap: var(--space-md);
+}
+
+.card-beneficio:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.card-beneficio:nth-child(3) {
+  animation-delay: 200ms;
 }
 
 .card-icon {
@@ -514,6 +597,10 @@ section {
   overflow: hidden;
 }
 
+.card-professor:nth-child(2) {
+  animation-delay: 150ms;
+}
+
 .card-professor img {
   width: 100%;
   height: 360px;
@@ -574,6 +661,14 @@ section {
   flex-direction: column;
   gap: var(--space-sm);
   min-height: 460px;
+}
+
+.card-plano:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.card-plano:nth-child(3) {
+  animation-delay: 300ms;
 }
 
 .card-plano:hover {
@@ -861,24 +956,45 @@ footer p:last-of-type {
   /* HEADER */
 
   .navbar-header > .container {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: var(--space-md);
+    row-gap: 0;
+    min-height: auto;
   }
 
   a.logo > img {
     height: 52px;
   }
 
+  .navbar {
+    width: 100%;
+    order: 1;
+  }
+
   .nav-links {
-    flex-wrap: wrap;
+    display: none;
+  }
+
+  .nav-links > a {
+    width: 100%;
     justify-content: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-toggle {
+    display: flex;
   }
 
   /* HERO */
 
   #hero {
     min-height: 100svh;
-    padding-block: 8rem 4rem;
+    padding-block: 6rem 4rem;
   }
 
   #hero > .container {
@@ -896,14 +1012,26 @@ footer p:last-of-type {
 
   /* BENEFÍCIOS */
 
+  #beneficios {
+    scroll-margin-top: 30px;
+  }
+
   .beneficios-grid {
     grid-template-columns: 1fr;
   }
 
   /* SOBRE */
 
+  #sobre {
+    scroll-margin-top: 30px;
+  }
+
   #sobre .container {
     grid-template-columns: 1fr;
+  }
+
+  .sobre-image {
+    order: 1;
   }
 
   .sobre-content {
@@ -922,11 +1050,19 @@ footer p:last-of-type {
 
   /* PROFESSORES */
 
+  #professores {
+    scroll-margin-top: 20px;
+  }
+
   .professores-grid {
     grid-template-columns: 1fr;
   }
 
   /* PLANOS */
+
+  #planos {
+    scroll-margin-top: 20px;
+  }
 
   .planos-grid {
     grid-template-columns: 1fr;
@@ -938,11 +1074,19 @@ footer p:last-of-type {
 
   /* FAQ */
 
+  #faq {
+    scroll-margin-top: 20px;
+  }
+
   summary {
     font-size: var(--text-base);
   }
 
   /* CONTATO */
+
+  #contato {
+    scroll-margin-top: 30px;
+  }
 
   #contato form button {
     font-size: var(--text-base);
